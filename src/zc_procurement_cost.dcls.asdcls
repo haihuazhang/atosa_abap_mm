@@ -1,0 +1,11 @@
+@EndUserText.label: 'Procurement Cost Report'
+@MappingRole: true
+define role ZC_PROCUREMENT_COST {
+    grant
+        select
+            on
+                ZC_PROCUREMENT_COST
+                    where
+                        inheriting conditions from entity ZI_PROCUREMENT_COST1;
+                        
+}

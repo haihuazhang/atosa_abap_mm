@@ -1,0 +1,4 @@
+@EndUserText.label: 'Loading Variance for Container '
+define service ZUI_SMM019_O4 {
+  expose ZC_SMM019;
+}

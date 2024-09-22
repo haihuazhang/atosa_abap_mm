@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def for Procurement Cost Report'
+define service ZUI_PROCUREMENT_COST {
+  expose ZC_PROCUREMENT_COST as ProcurementCost;
+}

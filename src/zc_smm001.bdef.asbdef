@@ -1,0 +1,29 @@
+projection;
+strict ( 2 );
+
+define behavior for ZC_SMM001 //alias <alias_name>
+{
+
+  use association _ShipmentItem;
+  use association _ShipmentContainer { create; }
+}
+
+define behavior for ZC_SMM002 //alias <alias_name>
+{
+
+  use association _ShipmentHeader;
+}
+
+define behavior for ZC_SMM003 //alias <alias_name>
+{
+
+  use association _ShipmentHeader;
+  use association _ShipmentSerialNumber;
+}
+
+define behavior for ZC_SMM004 //alias <alias_name>
+{
+
+  use association _ShipmentHeader;
+  use association _ShipmentContainer;
+}

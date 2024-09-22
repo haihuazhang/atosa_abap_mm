@@ -1,0 +1,136 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Scanning Records',
+    typeNamePlural: 'Scanning Records'
+  }
+}
+annotate view ZC_SMM011 with
+{
+
+  @UI.lineItem: [ { position: 05 , importance: #MEDIUM } ]
+  @UI.selectionField: [{ position: 140 }]
+  @EndUserText.label: 'Is Reversed'
+  @Consumption.filter.defaultValue: 'N'
+  @Consumption.filter.multipleSelections: true
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZR_SMM016', element: 'Value' } } ]
+  IsReversed;
+
+  @UI.lineItem: [ { position: 10 , importance: #MEDIUM } ]
+  @UI.selectionField: [{ position: 10 }]
+  @EndUserText.label: 'Material Document Year'
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_MaterialDocumentYear', element: 'MaterialDocumentYear' } } ]
+  MaterialDocumentYear;
+
+  @UI.lineItem: [ { position: 20 , importance: #MEDIUM } ]
+  @UI.selectionField: [{ position: 20 }]
+  @EndUserText.label: 'Material Document'
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_MaterialDocumentHeader_2', element: 'MaterialDocument' } } ]
+  MaterialDocument;
+
+  @UI.lineItem: [ { position: 30 , importance: #MEDIUM } ]
+  @UI.selectionField: [{ position: 30 }]
+  @EndUserText.label: 'Goods Movement Type'
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_GoodsMovementType', element: 'GoodsMovementType' } } ]
+  GoodsMovementType;
+
+  @UI.lineItem: [ { position: 40 , importance: #MEDIUM } ]
+  @EndUserText.label: 'Document Header Text'
+  MaterialDocumentHeaderText;
+
+  @UI.lineItem: [ { position: 50 , importance: #MEDIUM } ]
+  @UI.selectionField: [{ position: 100 }]
+  @Consumption.filter.selectionType: #INTERVAL
+  @EndUserText.label: 'Document Date'
+  DocumentDate;
+
+  @UI.lineItem: [ { position: 60 , importance: #MEDIUM } ]
+  @UI.selectionField: [{ position: 110 }]
+  @Consumption.filter.selectionType: #INTERVAL
+  @EndUserText.label: 'Posting Date'
+  PostingDate;
+
+  @UI.lineItem: [ { position: 70 , importance: #MEDIUM } ]
+  @UI.selectionField: [{ position: 120 }]
+  @EndUserText.label: 'Created By'
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_BusinessUserVH', element: 'UserID' } } ]
+  CreatedByUser;
+
+  @UI.lineItem: [ { position: 80 , importance: #MEDIUM } ]
+  @UI.selectionField: [{ position: 130 }]
+  @Consumption.filter.selectionType: #INTERVAL
+  @EndUserText.label: 'Created On'
+  CreationDate;
+
+  @UI.lineItem: [ { position: 90 , importance: #MEDIUM } ]
+  @EndUserText.label: 'Material Document Item'
+  MaterialDocumentItem;
+
+  @UI.lineItem: [ { position: 100 , importance: #MEDIUM } ]
+  @UI.selectionField: [{ position: 40 }]
+  @EndUserText.label: 'Material'
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_ProductPlantBasic', element: 'Product' } } ]
+  Material;
+
+  @UI.lineItem: [ { position: 110 , importance: #MEDIUM } ]
+  @UI.selectionField: [{ position: 50 }]
+  @EndUserText.label: 'Plant'
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_Plant', element: 'Plant' } } ]
+  Plant;
+
+  @UI.lineItem: [ { position: 120 , importance: #MEDIUM } ]
+  @UI.selectionField: [{ position: 60 }]
+  @EndUserText.label: 'Storage Location'
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_StorageLocation', element: 'StorageLocation' } } ]
+  StorageLocation;
+
+  @UI.lineItem: [ { position: 130 , importance: #MEDIUM } ]
+  @EndUserText.label: 'Quantity'
+  QuantityInBaseUnit;
+
+  @UI.lineItem: [ { position: 140 , importance: #MEDIUM } ]
+  @EndUserText.label: 'Qty in unit of entry'
+  QuantityInEntryUnit;
+
+  @UI.lineItem: [ { position: 150 , importance: #MEDIUM } ]
+  @UI.selectionField: [{ position: 70 }]
+  @EndUserText.label: 'Purchase Order'
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_PurchaseOrderAPI01', element: 'PurchaseOrder' } } ]
+  PurchaseOrder;
+
+  @UI.lineItem: [ { position: 160 , importance: #MEDIUM } ]
+  @EndUserText.label: 'Purchase Order Item'
+  PurchaseOrderItem;
+
+  @UI.lineItem: [ { position: 170 , importance: #MEDIUM } ]
+  @UI.selectionField: [{ position: 80 }]
+  @EndUserText.label: 'Supplier'
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_Supplier', element: 'Supplier' } } ]
+  Supplier;
+
+  @UI.lineItem: [ { position: 180 , importance: #MEDIUM } ]
+  @UI.selectionField: [{ position: 90 }]
+  @EndUserText.label: 'Serial Number'
+  SerialNumber;
+
+  @UI.lineItem: [ { position: 190 , importance: #MEDIUM } ]
+  @EndUserText.label: 'Reversed Doc Year'
+  ReversedMaterialDocumentYear;
+
+  @UI.lineItem: [ { position: 200 , importance: #MEDIUM } ]
+  @EndUserText.label: 'Reversed Doc'
+  ReversedMaterialDocument;
+
+  @UI.lineItem: [ { position: 210 , importance: #MEDIUM } ]
+  @EndUserText.label: 'Reversed Doc Item'
+  ReversedMaterialDocumentItem;
+
+  @UI.lineItem: [ { position: 220 , importance: #MEDIUM } ]
+  @EndUserText.label: 'Shipment Document'
+  ShipmentDocument;
+
+  @UI.lineItem: [ { position: 230 , importance: #MEDIUM } ]
+  @EndUserText.label: 'Container Number'
+  ContainerNumber;
+
+}

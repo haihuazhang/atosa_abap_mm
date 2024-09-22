@@ -1,0 +1,10 @@
+@EndUserText.label: 'Authorization for Reverse Scanning Records'
+@MappingRole: true
+define role ZC_SMM011 {
+    grant
+        select
+            on
+                ZC_SMM011
+                    where
+                        inheriting conditions from entity ZR_SMM011;
+}

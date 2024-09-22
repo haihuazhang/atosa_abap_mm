@@ -1,0 +1,73 @@
+unmanaged implementation in class zbp_r_smm001 unique;
+strict ( 2 );
+
+define behavior for ZR_SMM001 //alias <alias_name>
+//late numbering
+lock master
+authorization master ( instance )
+//etag master CreationDate
+{
+  //  create;
+  //  update;
+  //  delete;
+
+  field ( readonly ) PurchaseOrder;
+
+  association _ShipmentItem;
+  association _ShipmentContainer { create; }
+}
+
+define behavior for ZR_SMM002 //alias <alias_name>
+//late numbering
+lock dependent by _ShipmentHeader
+authorization dependent by _ShipmentHeader
+//etag master <field_name>
+{
+  //  update;
+  //  delete;
+
+  field ( readonly ) PurchaseOrder, PurchaseOrderItem;
+
+  association _ShipmentHeader;
+}
+
+define behavior for ZR_SMM003 //alias <alias_name>
+//late numbering
+lock dependent by _ShipmentHeader
+authorization dependent by _ShipmentHeader
+//etag master <field_name>
+{
+  //  update;
+  //  delete;
+
+  field ( readonly )
+  PurchaseOrder,
+  PurchaseOrderItem,
+  ShipmentNumber,
+  ContainerNumber;
+
+  association _ShipmentHeader;
+  association _ShipmentSerialNumber;
+}
+
+define behavior for ZR_SMM004 //alias <alias_name>
+//late numbering
+lock dependent by _ShipmentHeader
+authorization dependent by _ShipmentHeader
+//etag master <field_name>
+{
+  //  update;
+  //  delete;
+
+  field ( readonly )
+  ShipmentNumber,
+  Material,
+  OldSerialNumber,
+  SerialNumber,
+  PurchaseOrder,
+  PurchaseOrderItem,
+  ContainerNumber;
+
+  association _ShipmentHeader;
+  association _ShipmentContainer;
+}

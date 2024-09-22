@@ -1,0 +1,8 @@
+projection;
+strict ( 1 );
+
+define behavior for ZC_SMM011 //alias <alias_name>
+{
+
+  use action reverseScaningRecord;
+}

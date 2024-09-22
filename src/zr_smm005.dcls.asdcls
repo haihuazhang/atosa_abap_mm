@@ -1,0 +1,12 @@
+@EndUserText.label: 'Authorization for ZR_SMM005'
+@MappingRole: true
+define role ZR_SMM005 {
+    grant 
+        select
+            on
+                ZR_SMM005
+                    where
+                        (Plant) = aspect pfcg_auth(M_MATE_WRK, WERKS, ACTVT='03')
+                      and (AuthorizationGroup) = aspect pfcg_auth (M_MATE_MAT, BEGRU, ACTVT='03');
+                        
+}

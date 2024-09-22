@@ -1,0 +1,11 @@
+@EndUserText.label: 'Authorization for Manage Shipment'
+@MappingRole: true
+define role ZR_SMM003 {
+    grant 
+        select
+            on
+                ZR_SMM003
+                    where
+                          (Plant) = aspect pfcg_auth (M_MATE_WRK, WERKS, ACTVT='03')
+                      and (_Product.AuthorizationGroup) = aspect pfcg_auth (M_MATE_MAT, BEGRU, ACTVT='03');
+}

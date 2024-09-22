@@ -1,0 +1,4 @@
+@EndUserText.label: 'Inventory Cost Report SMM004 Service Definition'
+define service ZUI_SMM005_O2 {
+  expose ZC_SMM005 as InventoryCost;
+}

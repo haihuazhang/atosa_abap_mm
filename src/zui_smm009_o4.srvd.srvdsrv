@@ -1,0 +1,11 @@
+@EndUserText.label: 'PO List - Received but not Invoiced'
+define service ZUI_SMM009_O4 {
+  expose ZR_SMM009;
+  expose I_ConditionType;
+  expose I_Supplier;
+  expose I_PurchasingOrganization;
+  expose I_PurchasingGroup;
+  expose I_CompanyCode;
+  expose I_Plant;
+  expose I_BusinessUserVH;
+}

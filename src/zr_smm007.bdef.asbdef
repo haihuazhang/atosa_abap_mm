@@ -1,0 +1,17 @@
+unmanaged implementation in class zbp_r_smm007 unique;
+strict ( 2 );
+
+define behavior for ZR_SMM007 //alias <alias_name>
+//persistent table <???>
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  field (readonly) RESERVATION,RESERVATIONITEM ;
+  create;
+  update;
+  delete;
+
+  static action Z_createMaterialDocument
+      parameter zr_common_parameter;
+}

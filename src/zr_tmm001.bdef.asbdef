@@ -1,0 +1,56 @@
+managed implementation in class ZBP_R_TMM001 unique;
+strict ( 2 );
+with draft;
+
+define own authorization context
+{
+
+  'ZZ_AUTH03';
+//  'S_USER_GRP';
+}
+
+
+define behavior for ZR_TMM001
+persistent table ztmm001
+draft table ztmm001_d
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master ( global )
+
+{
+  field ( readonly )
+  UUID,
+  CreatedAt,
+  CreatedBy,
+  LastChangedAt,
+  LastChangedBy,
+  LocalLastChangedAt;
+
+  field ( numbering : managed )
+  UUID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  validation check on save { field Product; }
+  mapping for ztmm001
+    {
+      UUID               = uuid;
+      Product            = product;
+      Zserialnumber      = zserialnumber;
+      Zoldserialnumber   = zoldserialnumber;
+      CreatedBy          = created_by;
+      CreatedAt          = created_at;
+      LastChangedBy      = last_changed_by;
+      LastChangedAt      = last_changed_at;
+      LocalLastChangedAt = local_last_changed_at;
+    }
+}

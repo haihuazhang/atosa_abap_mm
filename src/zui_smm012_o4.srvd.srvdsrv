@@ -1,0 +1,4 @@
+@EndUserText.label: 'PO Invoicing Party Report'
+define service ZUI_SMM012_O4 {
+  expose ZC_SMM012;
+}

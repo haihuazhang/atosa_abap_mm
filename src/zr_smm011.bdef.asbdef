@@ -1,0 +1,15 @@
+unmanaged implementation in class zbp_r_smm011 unique;
+strict ( 1 );
+
+define behavior for ZR_SMM011 //alias <alias_name>
+//late numbering
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  //  create;
+  //  update;
+  //  delete;
+
+  static action reverseScaningRecord parameter ZR_COMMON_PARAMETER result [1] ZR_COMMON_PARAMETER;
+}

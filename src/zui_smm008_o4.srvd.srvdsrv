@@ -1,0 +1,4 @@
+@EndUserText.label: 'Create Material Document by Reservation'
+define service ZUI_SMM008_O4 {
+  expose ZR_SMM008 as ZR_SMM008;
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Get Reservation Document Item Info.'
+define service ZUI_SMM007_O2 {
+  expose ZR_SMM007 as ReqDocItem;
+}

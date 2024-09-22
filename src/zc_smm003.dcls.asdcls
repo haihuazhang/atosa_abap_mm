@@ -1,0 +1,11 @@
+@EndUserText.label: 'Authorization for Manage Shipment'
+@MappingRole: true
+define role ZC_SMM003 {
+    grant
+        select
+            on
+                ZC_SMM003
+                    where
+                        inheriting conditions from entity ZR_SMM003;
+                        
+}

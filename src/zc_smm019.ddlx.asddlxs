@@ -1,0 +1,86 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Purchase Orders',
+    typeNamePlural: 'Purchase Orders'
+  },
+  presentationVariant:[{
+    sortOrder: [ { by: 'PurchaseOrder' , direction: #ASC },
+                 { by: 'PurchaseOrderItem' , direction: #ASC } ],
+    visualizations: [{type: #AS_LINEITEM}]
+  }]
+}
+annotate view ZC_SMM019 with
+{
+
+  @UI.lineItem: [ { position: 10 , importance: #MEDIUM } ]
+  @UI.selectionField: [{ position: 10 }]
+  @EndUserText.label: 'Shipment No.'
+  ShipmentNumber;
+
+  @UI.lineItem: [ { position: 20 , importance: #MEDIUM, cssDefault.width: '10rem' } ]
+  @UI.selectionField: [{ position: 20 }]
+  @EndUserText.label: 'Purchase Order'
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_PurchaseOrderAPI01', element: 'PurchaseOrder' } } ]
+  PurchaseOrder;
+
+  @UI.lineItem: [ { position: 30 , importance: #MEDIUM, cssDefault.width: '10rem' } ]
+  @EndUserText.label: 'PO Item'
+  PurchaseOrderItem;
+
+  @UI.lineItem: [ { position: 40 , importance: #MEDIUM } ]
+  @EndUserText.label: 'Material'
+  Material;
+
+  @UI.lineItem: [ { position: 50 , importance: #MEDIUM } ]
+  @EndUserText.label: 'Order Quantity'
+  OrderQuantity;
+
+  @UI.lineItem: [ { position: 60 , importance: #MEDIUM } ]
+  @EndUserText.label: 'Loading Quantity'
+  LoadingQuantity;
+
+  @UI.lineItem: [ { position: 70 , importance: #MEDIUM } ]
+  @EndUserText.label: 'Loading Variance'
+  LoadingVariance;
+
+  @UI.lineItem: [ { position: 80 , importance: #MEDIUM } ]
+  @EndUserText.label: 'Received Quantity'
+  ReceivedQuantity;
+
+  @UI.lineItem: [ { position: 90 , importance: #MEDIUM, cssDefault.width: '15rem' } ]
+  @EndUserText.label: 'Open Quantity for Receiving'
+  OpenQuantityforReceiving;
+
+  @UI.selectionField: [{ position: 30 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_SupplierPurchasingOrg', element: 'Supplier' } } ]
+  Supplier;
+
+  @UI.selectionField: [{ position: 40 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_PurchasingOrganization', element: 'PurchasingOrganization' } } ]
+  PurchasingOrganization;
+
+  @UI.selectionField: [{ position: 50 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_PurchasingGroup', element: 'PurchasingGroup' } } ]
+  PurchasingGroup;
+
+  @UI.selectionField: [{ position: 60 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_CompanyCode', element: 'CompanyCode' } } ]
+  CompanyCode;
+
+  @UI.selectionField: [{ position: 70 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_Plant', element: 'Plant' } } ]
+  Plant;
+
+  @UI.selectionField: [{ position: 80 }]
+  @Consumption.filter: { selectionType: #INTERVAL }
+  PurchaseOrderDate;
+
+  @UI.selectionField: [{ position: 90 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_BusinessUserVH', element: 'UserID' } } ]
+  CreatedByUser;
+
+  @UI.selectionField: [{ position: 100 }]
+  @Consumption.filter: { selectionType: #INTERVAL }
+  CreationDate;
+}

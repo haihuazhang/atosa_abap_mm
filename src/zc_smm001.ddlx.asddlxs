@@ -1,0 +1,170 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Shipment Document',
+    typeNamePlural: 'Shipment Document',
+    title: { type: #STANDARD, value: 'ShipmentDocument' }
+  },
+  presentationVariant:[{
+    visualizations: [{type: #AS_LINEITEM}],
+    sortOrder: [ { by: 'ShipmentDocument' , direction: #DESC },
+                 { by: 'PurchaseOrder' , direction: #DESC } ]
+  }]
+}
+annotate view ZC_SMM001 with
+{
+
+  @UI.facet: [ {
+    id: 'idIdentification',
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'General information',
+    position: 10
+  },
+  {
+    id: 'idItem',
+    purpose: #STANDARD,
+    type: #LINEITEM_REFERENCE,
+    label: 'Items',
+    position: 10,
+    targetElement: '_ShipmentItem'
+  },
+  {
+    id: 'idContainer',
+    purpose: #STANDARD,
+    type: #LINEITEM_REFERENCE,
+    label: 'Containers',
+    position: 20,
+    targetElement: '_ShipmentContainer'
+  } ]
+
+  @UI.lineItem: [ {
+    position: 10 ,
+    importance: #MEDIUM,
+    label: 'Shipment'
+  } ]
+  @UI.identification: [ {
+    position: 10 ,
+    label: 'Shipment Document'
+  } ]
+  @EndUserText.label: 'Shipment Document'
+  @UI.selectionField: [{ position: 10 }]
+  ShipmentDocument;
+
+  @UI.lineItem: [ {
+    position: 20 ,
+    importance: #MEDIUM,
+    label: 'Purchase Order'
+  } ]
+  @UI.identification: [ {
+    position: 20 ,
+    label: 'Purchase Order'
+  } ]
+  @UI.selectionField: [{ position: 30 }]
+  @Consumption.semanticObject: 'PurchaseOrder'
+  @Consumption.valueHelpDefinition: [ {
+    entity: { name: 'I_PurchaseOrderAPI01', element: 'PurchaseOrder' }
+  } ]
+  PurchaseOrder;
+
+  @UI.lineItem: [ {
+    position: 30 ,
+    importance: #MEDIUM,
+    label: 'Supplier'
+  } ]
+  @UI.identification: [ {
+    position: 30 ,
+    label: 'Supplier'
+  } ]
+  @UI.selectionField: [{ position: 20 }]
+  @Consumption.semanticObject: 'Supplier'
+  @Consumption.valueHelpDefinition: [ {
+    entity: { name: 'I_SupplierPurchasingOrg', element: 'Supplier' }
+  } ]
+  Supplier;
+
+  @UI.lineItem: [ {
+    position: 40 ,
+    importance: #MEDIUM,
+    label: 'Purchasing Organization'
+  } ]
+  @UI.identification: [ {
+    position: 40 ,
+    label: 'Purchasing Organization'
+  } ]
+  PurchasingOrganization;
+
+  @UI.lineItem: [ {
+    position: 50 ,
+    importance: #MEDIUM,
+    label: 'Purchasing Group'
+  } ]
+  @UI.identification: [ {
+    position: 50 ,
+    label: 'Purchasing Group'
+  } ]
+  @UI.selectionField: [{ position: 40 }]
+  @Consumption.valueHelpDefinition: [ {
+    entity: { name: 'I_PurchasingGroup', element: 'PurchasingGroup' }
+  } ]
+  PurchasingGroup;
+
+  @UI.lineItem: [ {
+    position: 60 ,
+    importance: #MEDIUM,
+    label: 'Company Code'
+  } ]
+  @UI.identification: [ {
+    position: 60 ,
+    label: 'Company Code'
+  } ]
+  @UI.selectionField: [{ position: 50 }]
+  @Consumption.valueHelpDefinition: [ {
+    entity: { name: 'I_CompanyCode', element: 'CompanyCode' }
+  } ]
+  CompanyCode;
+
+  @UI.lineItem: [ {
+    position: 70 ,
+    importance: #MEDIUM,
+    label: 'Purchase Order Date'
+  } ]
+  @UI.identification: [ {
+    position: 70 ,
+    label: 'Purchase Order Date'
+  } ]
+  @UI.selectionField: [{ position: 60 }]
+  @Consumption.filter: {
+    selectionType: #INTERVAL
+  }
+  PurchaseOrderDate;
+
+  @UI.lineItem: [ {
+    position: 80 ,
+    importance: #MEDIUM,
+    label: 'Created User'
+  } ]
+  @UI.identification: [ {
+    position: 80 ,
+    label: 'Created User'
+  } ]
+  @UI.selectionField: [{ position: 70 }]
+  @Consumption.valueHelpDefinition: [ {
+    entity: { name: 'I_BusinessUserVH', element: 'UserID' }
+  } ]
+  CreatedByUser;
+
+  @UI.lineItem: [ {
+    position: 90 ,
+    importance: #MEDIUM,
+    label: 'Creation Date'
+  } ]
+  @UI.identification: [ {
+    position: 90 ,
+    label: 'Creation Date'
+  } ]
+  @UI.selectionField: [{ position: 80 }]
+  @Consumption.filter: {
+    selectionType: #INTERVAL
+  }
+  CreationDate;
+}

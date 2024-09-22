@@ -1,0 +1,11 @@
+@EndUserText.label: 'Authorization for ZTMM003'
+@MappingRole: true
+define role ZC_TMM003 {
+    grant
+        select
+            on
+                ZC_TMM003
+                    where
+                        inheriting conditions from entity ZR_TMM003;
+                        
+}

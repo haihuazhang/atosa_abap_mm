@@ -1,0 +1,4 @@
+@EndUserText.label: 'Reverse Scanning Records'
+define service ZUI_SMM011_O4 {
+  expose ZC_SMM011;
+}

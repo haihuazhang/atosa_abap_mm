@@ -1,0 +1,10 @@
+@EndUserText.label: 'Variance for Container'
+@MappingRole: true
+define role ZC_SMM019 {
+    grant
+        select
+            on
+                ZC_SMM019
+                    where
+                        inheriting conditions from entity ZR_SMM019;
+}

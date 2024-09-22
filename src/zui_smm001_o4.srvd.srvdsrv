@@ -1,0 +1,7 @@
+@EndUserText.label: 'Manage Shipment Document'
+define service ZUI_SMM001_O4 {
+  expose ZC_SMM001 as ShipmentHeader;
+  expose ZC_SMM002 as ShipmentItem;
+  expose ZC_SMM003 as ShipmentContainer;
+  expose ZC_SMM004 as ShipmentSerialNumber;
+}

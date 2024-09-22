@@ -1,0 +1,78 @@
+managed implementation in class ZBP_R_TMM002 unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZR_TMM002
+//persistent table ztmm002
+draft table ztmm002_d
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master ( global )
+with unmanaged save
+
+{
+  field ( mandatory : create )
+  ShipmentNumber,
+  ContainerNumber,
+  PurchaseOrder,
+  PurchaseOrderItem;
+
+  field ( readonly )
+  Supplier,
+  Material,
+  Plant,
+  StorageLocation,
+  SerialNumberProfile,
+  ReceivedQuantity,
+  OpenQuantity,
+  OrderUnit,
+  MaterialDocument,
+  MaterialDocumentItem,
+  CreatedAt,
+  CreatedBy,
+  LastChangedAt,
+  LastChangedBy,
+  LocalLastChangedAt;
+
+  field ( readonly : update )
+  ShipmentNumber,
+  ContainerNumber,
+  PurchaseOrder,
+  PurchaseOrderItem;
+
+  create;
+  update;
+  delete ( precheck );
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  static action createMaterialDocument
+    parameter zr_common_parameter;
+
+  mapping for ztmm002
+    {
+      ShipmentNumber       = shipment_number;
+      ContainerNumber      = container_number;
+      Material             = material;
+      Supplier             = supplier;
+      PurchaseOrder        = purchase_order;
+      PurchaseOrderItem    = purchase_order_item;
+      Plant                = plant;
+      StorageLocation      = storage_location;
+      SerialNumberProfile  = serial_number_profile;
+      LoadingQuantity      = loading_quantity;
+      ReceivedQuantity     = received_quantity;
+      OrderUnit            = order_unit;
+      MaterialDocument     = material_document;
+      MaterialDocumentItem = material_document_item;
+      CreatedBy            = created_by;
+      CreatedAt            = created_at;
+      LastChangedBy        = last_changed_by;
+      LastChangedAt        = last_changed_at;
+      LocalLastChangedAt   = local_last_changed_at;
+    }
+}

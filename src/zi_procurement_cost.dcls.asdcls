@@ -1,0 +1,12 @@
+@EndUserText.label: 'Procurement Cost Report'
+@MappingRole: true
+define role ZI_PROCUREMENT_COST {
+    grant 
+        select
+            on
+                ZI_PROCUREMENT_COST
+                    where
+                          (Plant) = aspect pfcg_auth (M_MATE_WRK, WERKS, ACTVT='03')
+                      and (_Product.AuthorizationGroup) = aspect pfcg_auth (M_MATE_MAT, BEGRU, ACTVT='03');
+                        
+}

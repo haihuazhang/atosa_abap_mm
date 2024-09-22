@@ -1,0 +1,111 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Shipment Item',
+    typeNamePlural: 'Shipment Items',
+    title: { type: #STANDARD, value: 'Material' }
+  }
+}
+annotate entity ZC_SMM002 with
+{
+
+  @UI.facet: [ {
+    id: 'idIdentification',
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'General information',
+    position: 10
+  } ]
+
+  @UI.lineItem: [ {
+    position: 10 ,
+    importance: #MEDIUM,
+    label: 'Item'
+  } ]
+  @UI.identification: [ {
+    position: 10 ,
+    label: 'Item'
+  } ]
+  ShipmentItem;
+
+  @UI.lineItem: [ {
+    position: 20 ,
+    importance: #MEDIUM,
+    label: 'Material'
+  } ]
+  @UI.identification: [ {
+    position: 20 ,
+    label: 'Material'
+  } ]
+  @Consumption.semanticObject: 'Material'
+  @Consumption.semanticObjectMapping.element: 'Material'
+  Material;
+
+  @UI.lineItem: [ {
+    position: 30 ,
+    importance: #MEDIUM,
+    label: 'Short Text'
+  } ]
+  @UI.identification: [ {
+    position: 30 ,
+    label: 'Short Text'
+  } ]
+  PurchaseOrderItemText;
+
+  @UI.lineItem: [ {
+    position: 40 ,
+    importance: #MEDIUM,
+    label: 'Material Group'
+  } ]
+  @UI.identification: [ {
+    position: 40 ,
+    label: 'Material Group'
+  } ]
+  MaterialGroup;
+
+  @UI.lineItem: [ {
+    position: 50 ,
+    importance: #MEDIUM,
+    label: 'Delivery Date'
+  } ]
+  @UI.identification: [ {
+    position: 50 ,
+    label: 'Delivery Date'
+  } ]
+  ScheduleLineDeliveryDate;
+
+  @UI.lineItem: [ {
+    position: 60 ,
+    importance: #MEDIUM,
+    label: 'Order Quantity'
+  } ]
+  @UI.identification: [ {
+    position: 60 ,
+    label: 'Order Quantity'
+  } ]
+  OrderQuantity;
+
+  @UI.lineItem: [ {
+    position: 70 ,
+    importance: #MEDIUM,
+    label: 'Plant'
+  } ]
+  @UI.identification: [ {
+    position: 70 ,
+    label: 'Plant'
+  } ]
+  Plant;
+
+  @UI.lineItem: [ {
+    position: 80 ,
+    importance: #MEDIUM,
+    label: 'Storage Location'
+  } ]
+  @UI.identification: [ {
+    position: 80 ,
+    label: 'Storage Location'
+  } ]
+  StorageLocation;
+
+  @UI.hidden: true
+  PurchaseOrderQuantityUnit;
+}

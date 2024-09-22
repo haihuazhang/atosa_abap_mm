@@ -1,0 +1,53 @@
+unmanaged implementation in class zbp_r_smm008 unique;
+strict ( 2 );
+
+define behavior for ZR_SMM008 //alias <alias_name>
+//persistent table <???>
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  field ( readonly ) RESERVATION, RESERVATIONITEM;
+
+  create;
+  update;
+  delete;
+
+  static action Z_createMaterialDocument
+    parameter zr_common_parameter;
+
+  static action z_documentinplant
+    parameter zr_common_parameter;
+
+  static action z_documentcrossplant
+    parameter zr_common_parameter;
+
+  // 获取物料信息
+  static action z_MatlStkInAcctMod
+    parameter zr_common_parameter
+    result [0..*] zr_smm008_material;
+
+  // 获取序列号信息
+  static action z_getMatlStkSerial
+    parameter zr_common_parameter
+    result [0..*]  zr_smm008_material;
+
+  // 获取预留行信息
+  static action z_getReservationItem
+    parameter zr_common_parameter
+    result [0..*]  ZR_SMM008_RESERVATION;
+
+  // 获取物料凭证信息
+  static action z_getMatlDocItem
+    parameter zr_common_parameter
+    result [0..*]  ZR_SMM008_matdoc;
+
+  // 获取物料凭证序列号信息
+  static action z_GetMatDocSerialNumber
+    parameter zr_common_parameter
+    result [0..*]  ZR_SMM008_matdocSN;
+
+  // 跨工厂收货
+  static action z_documentcrossplantR
+    parameter zr_common_parameter;
+}

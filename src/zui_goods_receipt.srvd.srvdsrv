@@ -1,0 +1,6 @@
+@EndUserText.label: 'Goods Receipt for PDA'
+define service ZUI_GOODS_RECEIPT {
+  expose ZC_TMM002;
+  expose ZC_TMM003;
+  expose I_StorageLocation as StorageLocation;
+}

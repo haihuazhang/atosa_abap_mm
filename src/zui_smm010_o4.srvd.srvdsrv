@@ -1,0 +1,4 @@
+@EndUserText.label: 'Stock Aging Report Service Definition'
+define service ZUI_SMM010_O4 {
+  expose ZR_SMM010 as stockAging;
+}

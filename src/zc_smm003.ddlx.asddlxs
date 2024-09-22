@@ -1,0 +1,182 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Container',
+    typeNamePlural: 'Container List',
+    title: { type: #STANDARD, value: 'ContainerNumber' }
+  }
+}
+annotate entity ZC_SMM003 with
+{
+
+  @UI.facet: [ {
+    id: 'idIdentification',
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'General information',
+    position: 10
+  },
+  {
+    id: 'idSerialNumber',
+    purpose: #STANDARD,
+    type: #LINEITEM_REFERENCE,
+    label: 'SerialNumber',
+    position: 10,
+    targetElement: '_ShipmentSerialNumber'
+  } ]
+
+  @UI.lineItem: [ {
+    position: 10 ,
+    importance: #MEDIUM,
+    label: 'Container'
+  } ]
+  @UI.identification: [ {
+    position: 10 ,
+    label: 'Container'
+  } ]
+  ContainerNumber;
+
+  @UI.lineItem: [ {
+    position: 20 ,
+    importance: #MEDIUM,
+    label: 'Purchase Order'
+  } ]
+  @UI.identification: [ {
+    position: 20 ,
+    label: 'Purchase Order'
+  } ]
+  PurchaseOrder;
+
+  @UI.lineItem: [ {
+    position: 30 ,
+    importance: #MEDIUM,
+    label: 'Item'
+  } ]
+  @UI.identification: [ {
+    position: 30 ,
+    label: 'Item'
+  } ]
+  PurchaseOrderItem;
+
+  @UI.lineItem: [ {
+    position: 40 ,
+    importance: #MEDIUM,
+    label: 'Material'
+  } ]
+  @UI.identification: [ {
+    position: 40 ,
+    label: 'Material'
+  } ]
+  @Consumption.semanticObject: 'Material'
+  @Consumption.semanticObjectMapping.element: 'Material'
+  Material;
+
+  @UI.lineItem: [ {
+    position: 50 ,
+    importance: #MEDIUM,
+    label: 'Plant'
+  } ]
+  @UI.identification: [ {
+    position: 50 ,
+    label: 'Plant'
+  } ]
+  Plant;
+
+  @UI.lineItem: [ {
+    position: 60 ,
+    importance: #MEDIUM,
+    label: 'Loading Quantity'
+  } ]
+  @UI.identification: [ {
+    position: 60 ,
+    label: 'Loading Quantity'
+  } ]
+  LoadingQuantity;
+
+  @UI.lineItem: [ {
+    position: 70 ,
+    importance: #MEDIUM,
+    label: 'Received Quantity'
+  } ]
+  @UI.identification: [ {
+    position: 70 ,
+    label: 'Received Quantity'
+  } ]
+  ReceivedQuantity;
+
+  @UI.lineItem: [ {
+    position: 80 ,
+    importance: #MEDIUM,
+    label: 'Open Quantity'
+  } ]
+  @UI.identification: [ {
+    position: 80 ,
+    label: 'Open Quantity'
+  } ]
+  OpenQuantity;
+
+  @UI.lineItem: [ {
+    position: 90 ,
+    importance: #MEDIUM,
+    label: 'Material Document'
+  } ]
+  @UI.identification: [ {
+    position: 90 ,
+    label: 'Material Document'
+  } ]
+  MaterialDocument;
+
+  @UI.lineItem: [ {
+    position: 100 ,
+    importance: #MEDIUM,
+    label: 'Material Document Item'
+  } ]
+  @UI.identification: [ {
+    position: 100 ,
+    label: 'Material Document Item'
+  } ]
+  MaterialDocumentItem;
+
+  @UI.lineItem: [ {
+    position: 110 ,
+    importance: #MEDIUM,
+    label: 'Created By'
+  } ]
+  @UI.identification: [ {
+    position: 110 ,
+    label: 'Created By'
+  } ]
+  CreatedBy;
+
+  @UI.lineItem: [ {
+    position: 120 ,
+    importance: #MEDIUM,
+    label: 'Created On'
+  } ]
+  @UI.identification: [ {
+    position: 120 ,
+    label: 'Created On'
+  } ]
+  CreatedAt;
+
+  @UI.lineItem: [ {
+    position: 130 ,
+    importance: #MEDIUM,
+    label: 'Changed By'
+  } ]
+  @UI.identification: [ {
+    position: 130 ,
+    label: 'Changed By'
+  } ]
+  LastChangedBy;
+
+  @UI.lineItem: [ {
+    position: 140 ,
+    importance: #MEDIUM,
+    label: 'Last Changed At'
+  } ]
+  @UI.identification: [ {
+    position: 140 ,
+    label: 'Last Changed At'
+  } ]
+  LastChangedAt;
+}
